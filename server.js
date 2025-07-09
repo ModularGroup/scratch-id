@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   // Restrict POST and PUT to same-origin only
   else if (['POST', 'PUT'].includes(req.method)) {
     const allowedOrigin = 'http://localhost:3000'; // Change this to your actual frontend URL
-    if (origin === allowedOrigin) {
+    if (origin === allowedOrigin || origin === 'https://scratch-id.onrender.com') {
       res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     } else {
       return res.status(403).json({ error: 'Forbidden: Cross-origin POST/PUT not allowed' });
